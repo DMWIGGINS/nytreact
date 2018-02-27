@@ -19,3 +19,10 @@ class App extends Component {
 }
 
 export default App;
+
+// components needed-container to be used with 3 different props. Search, Results, Saved
+// Header component
+// Search button
+// Save button
+// Delete button
+// Input
