@@ -1,7 +1,17 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Header } from "../../components/Header";
+import Header from "../../components/Header";
+import Jumbotron from "../../components/Jumbotron";
+import Container from "../../components/Container";
+import Panel from "../../components/Panel";
+import Form from "../../components/Form";
+import ArticleList from "../../components/ArticleList";
+import Button from "../../components/Button";
+
+
+
+
 // import { List, ListItem } from "../../components/ArticleList";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 class Home extends Component {
@@ -46,8 +56,27 @@ class Home extends Component {
 //   };
   render() {
     return (
+      
+        <Container fluid>
         <Header>
             </Header>
+            <Panel>
+              <Form>
+                </Form>
+              </Panel>
+              <Panel>
+              <ArticleList>
+                <Button>
+                  </Button>
+                </ArticleList>
+              </Panel>
+              <Panel>
+              <ArticleList>
+                <Button>
+                  </Button>
+                </ArticleList>
+              </Panel>
+              </Container>
 //       <Container fluid>
 //         <Row>
 //           <Col size="md-6">
@@ -109,4 +138,4 @@ class Home extends Component {
 }
     
   
-// export default Articles;
+export default Home;
