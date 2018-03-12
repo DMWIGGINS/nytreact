@@ -1,0 +1,33 @@
+{
+  "name": "nytreact",
+  "version": "1.0.0",
+  "description": "app to search for articles of specific topics by start and end date in the New York Times api and save to database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DMWIGGINS/nytreact.git"
+  },
+  "keywords": [
+    "article",
+    "news",
+    "search"
+  ],
+  "author": "Doreen Wiggins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DMWIGGINS/nytreact/issues"
+  },
+  "homepage": "https://github.com/DMWIGGINS/nytreact#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.9",
+    "nodemon": "^1.17.1",
+    "react-router-dom": "^4.2.2"
+  }
+}
