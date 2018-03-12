@@ -6,7 +6,8 @@ import Container from "../../components/Container";
 import Panel from "../../components/Panel";
 import { Input, FormBtn } from "../../components/Form";
 import { ArticleList, ArticleListItem } from "../../components/Articles";
-import Button from "../../components/Button";
+import DeleteBtn from "../../components/DeleteBtn";
+import SaveBtn from "../../components/SaveBtn";
 
 
 class Home extends Component {
@@ -39,7 +40,7 @@ class Home extends Component {
       [name]: value
     });
   };
-  
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state.topic, this.state.startDate, this.state.endDate);
@@ -90,84 +91,33 @@ class Home extends Component {
                  return (
                   <ArticleListItem 
                     title={article.headline}
-                    date={article.pub.date}
-                    href={article.web_url}
+                    date={article.pub_date}
+                    url={article.web_url}
                   />
                  );
                 })}
-                <Button>
-                  </Button>
+                <SaveBtn onClick={() => this.saveArticle()} />
                   <ArticleListItem/>
                 </ArticleList>
               </Panel>
               <Panel title=
               "Saved">              
               <ArticleList>
-                <Button>
-                  </Button>
+              {this.state.articles.map(article => {
+                return (
+                <ArticleListItem 
+                key={article._id}
+                title={article.headline}
+                date={article.pub_date}
+                url={article.web_url}
+              />
+                );
+              })}
+                {/* <DeleteBtn onClick={() => this.deleteArticle(article._id)} /> */}
                 </ArticleList>
               </Panel>
               </Container>
-//       <Container fluid>
-//         <Row>
-//           <Col size="md-6">
-//             <Jumbotron>
-//               <h1>What Books Should I Read?</h1>
-//             </Jumbotron>
-//             <form>
-//               <Input
-//                 value={this.state.title}
-//                 onChange={this.handleInputChange}
-//                 name="title"
-//                 placeholder="Title (required)"
-//               />
-//               <Input
-//                 value={this.state.author}
-//                 onChange={this.handleInputChange}
-//                 name="author"
-//                 placeholder="Author (required)"
-//               />
-//               <TextArea
-//                 value={this.state.synopsis}
-//                 onChange={this.handleInputChange}
-//                 name="synopsis"
-//                 placeholder="Synopsis (Optional)"
-//               />
-//               <FormBtn
-//                 disabled={!(this.state.author && this.state.title)}
-//                 onClick={this.handleFormSubmit}
-//               >
-//                 Submit Book
-//               </FormBtn>
-//             </form>
-//           </Col>
-//           <Col size="md-6 sm-12">
-//             <Jumbotron>
-//               <h1>Books On My List</h1>
-//             </Jumbotron>
-//             {this.state.books.length ? (
-//               <List>
-//                 {this.state.books.map(book => (
-//                   <ListItem key={book._id}>
-//                     <Link to={"/books/" + book._id}>
-//                       <strong>
-//                         {book.title} by {book.author}
-//                       </strong>
-//                     </Link>
-//                     <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-//                   </ListItem>
-//                 ))}
-//               </List>
-//             ) : (
-//               <h3>No Results to Display</h3>
-//             )}
-//           </Col>
-//         </Row>
-//       </Container>
-    );
-  }
-}
-
-    
-  
+    )};
+  }      
+          
 export default Home;

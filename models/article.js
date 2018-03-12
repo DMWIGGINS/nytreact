@@ -5,5 +5,6 @@ const articleSchema = new Schema({
   date: { type: Date, default: Date.now },
   url: { type: String, required: true }
 });
-const Book = mongoose.model("Article", articleSchema);
+const Article = mongoose.model("Article", articleSchema);
+
 module.exports = Article;

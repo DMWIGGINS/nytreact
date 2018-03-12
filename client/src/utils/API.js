@@ -17,21 +17,19 @@ export default {
     return axios.post("/api/article", articleData);
   },
   // gets the queried articles from the New York Times api
-  getArticles: function (query) {
-    return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json" + '?' + $.param({
-
+  getArticles: function (articles) {
+    return axios.get({
+      url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+      qs: {
         'api-key': "b9f91d369ff59547cd47b931d8cbc56b:0:74623931",
-        'q': req.params.topic,
-        'begin_date': req.params.startDate,
-        'end_date': req.params.endDate,
-        'fl': "web_url,headline,pub_date"
-      })
-      .then(({
-        data: {
-          results
-        }
-      }) => res.json(results))
-      .catch(err => res.status(422).json(err)))
-    console.log(results);
-  }
+        'q': articles.topic,
+        'begin_date': articles.startDate,
+        'end_date': articles.endDate,
+        'fl': "web_url,heading,pub_date"
+      },
+    }, function (err, response, body) {
+      body = JSON.parse(body);
+      console.log(body);
+    });
+  },
 };
