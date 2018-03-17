@@ -12,8 +12,7 @@ app.use(bodyParser.json());
 app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use(routes);
-// Use apiRoutes
-app.use("/api", apiRoutes);
+
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
