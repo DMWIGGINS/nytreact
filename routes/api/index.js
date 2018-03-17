@@ -3,4 +3,5 @@ const articleRoutes = require("./articles");
 
 // Article routes
 router.use("/articles", articleRoutes);
+
 module.exports = router;
